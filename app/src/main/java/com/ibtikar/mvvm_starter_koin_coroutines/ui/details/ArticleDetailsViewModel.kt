@@ -5,5 +5,4 @@ import com.ibtikar.mvvm_starter_koin_coroutines.utils.coroutines.ContextProvider
 
 class ArticleDetailsViewModel(private val contextProviders: ContextProviders) :
     BaseViewModel(contextProviders) {
-
 }

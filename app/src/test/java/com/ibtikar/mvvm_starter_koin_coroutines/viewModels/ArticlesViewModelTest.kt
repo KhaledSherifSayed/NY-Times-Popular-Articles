@@ -22,6 +22,10 @@ import org.junit.rules.TestRule
 import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
 
+/**
+ * Created by Meslmawy on 6/10/2021
+ */
+
 @RunWith(MockitoJUnitRunner::class)
 class ArticlesViewModelTest {
 

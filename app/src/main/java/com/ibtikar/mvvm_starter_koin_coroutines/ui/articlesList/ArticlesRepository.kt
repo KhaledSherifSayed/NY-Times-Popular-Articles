@@ -1,7 +1,6 @@
 package com.ibtikar.mvvm_starter_koin_coroutines.ui.articlesList
 
 
-import com.ibtikar.mvvm_starter_koin_coroutines.data.local.ArticlesDatabase
 import com.ibtikar.mvvm_starter_koin_coroutines.data.network.ApiService
 import com.ibtikar.mvvm_starter_koin_coroutines.ui.base.BaseRepository
 import com.ibtikar.mvvm_starter_koin_coroutines.utils.coroutines.ContextProviders
