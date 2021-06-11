@@ -103,7 +103,7 @@
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 android:paddingBottom="12dp"
-                android:text="@{article.published_date}"
+                android:text="@{article.publishedDate}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 android:textColor="@color/white_87"
                 android:textSize="@dimen/_12sdp"
