@@ -1,15 +1,15 @@
 package com.ibtikar.mvvm_starter_koin_coroutines.scenarios
 
-import com.ibtikar.mvvm_starter_koin_coroutines.actorDetails.ActorDetailsScreen
+import com.ibtikar.mvvm_starter_koin_coroutines.articleDetails.ArticleDetailsScreen
 import com.kaspersky.kaspresso.testcases.api.scenario.Scenario
 import com.kaspersky.kaspresso.testcases.core.testcontext.TestContext
 
 /**
  * Created by Meslmawy on 2/8/2021
  */
-class ActorDetailsScreenScenario : Scenario() {
+class ArticleDetailsScreenScenario : Scenario() {
 
-    val detailsScreen = ActorDetailsScreen()
+    val detailsScreen = ArticleDetailsScreen()
 
     override val steps: TestContext<Unit>.() -> Unit = {
 

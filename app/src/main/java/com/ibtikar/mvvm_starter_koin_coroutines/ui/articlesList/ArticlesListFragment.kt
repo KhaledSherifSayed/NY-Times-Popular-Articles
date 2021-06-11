@@ -3,10 +3,10 @@ package com.ibtikar.mvvm_starter_koin_coroutines.ui.articlesList
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.ibtikar.mvvm_starter_koin_coroutines.R
-import com.ibtikar.mvvm_starter_koin_coroutines.databinding.HomeFragmentBinding
+import com.ibtikar.mvvm_starter_koin_coroutines.databinding.ArticleListFragmentBinding
 import com.ibtikar.mvvm_starter_koin_coroutines.ui.base.BaseFragment
 import com.ibtikar.mvvm_starter_koin_coroutines.ui.base.ViewState
-import kotlinx.android.synthetic.main.home_fragment.*
+import kotlinx.android.synthetic.main.article_list_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -14,7 +14,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  */
 
 class ArticlesListFragment :
-    BaseFragment<HomeFragmentBinding, ArticlesViewModel>(R.layout.home_fragment) {
+    BaseFragment<ArticleListFragmentBinding, ArticlesViewModel>(R.layout.article_list_fragment) {
 
     private var articlesAdapter: ArticlesAdapter? = null
     override val viewModel: ArticlesViewModel by viewModel()
@@ -25,13 +25,11 @@ class ArticlesListFragment :
     }
 
     private fun setupAdapter() {
-
-        articlesAdapter = ArticlesAdapter(ArticleClick { it ->
+        articlesAdapter = ArticlesAdapter(ArticleClick {
             val toDetailsFragment = ArticlesListFragmentDirections.actionHomeFragmentToDetailsFragment(it)
             navigate(toDetailsFragment)
         })
         articlesRV.adapter = articlesAdapter
-
     }
 
     override fun render(state: ViewState) {

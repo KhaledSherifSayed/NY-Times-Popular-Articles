@@ -1,6 +1,6 @@
 package com.ibtikar.mvvm_starter_koin_coroutines.scenarios
 
-import com.ibtikar.mvvm_starter_koin_coroutines.actorList.ActorListScreen
+import com.ibtikar.mvvm_starter_koin_coroutines.articleList.ArticleListScreen
 import com.kaspersky.kaspresso.testcases.api.scenario.Scenario
 import com.kaspersky.kaspresso.testcases.core.testcontext.TestContext
 import io.kotlintest.matchers.numerics.shouldBeGreaterThan
@@ -8,13 +8,14 @@ import io.kotlintest.matchers.numerics.shouldBeGreaterThan
 /**
  * Created by Meslmawy on 2/8/2021
  */
-class ActorListAndDetailsScreenScenario : Scenario() {
+class ArticleListScreenScenario : Scenario() {
 
-    val listScreen = ActorListScreen()
+    val listScreen = ArticleListScreen()
 
     override val steps: TestContext<Unit>.() -> Unit = {
 
         listScreen {
+
             step("check actors list") {
                 itemsRecycler {
                     step("size should be bigger than 0") {
@@ -22,7 +23,7 @@ class ActorListAndDetailsScreenScenario : Scenario() {
                     }
 
                     step("make sure first item is visible and has data") {
-                        childAt<ActorListScreen.Item>(0) {
+                        childAt<ArticleListScreen.Item>(0) {
                             name {
                                 isVisible()
                                 hasAnyText()
@@ -30,14 +31,14 @@ class ActorListAndDetailsScreenScenario : Scenario() {
                             image {
                                 isVisible()
                             }
-                            constraint{
-                                 click()
-                            }
                         }
+                    }
+
+                    step("make sure recycler view scroll down") {
+                        scrollToEnd()
                     }
                 }
             }
         }
-
     }
 }
