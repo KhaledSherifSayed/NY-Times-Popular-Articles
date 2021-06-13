@@ -9,11 +9,9 @@
             name="article"
             type="com.ibtikar.mvvm_starter_koin_coroutines.data.models.ArticleModelResponse" />
 
-
         <variable
             name="articleClick"
             type="com.ibtikar.mvvm_starter_koin_coroutines.ui.articlesList.ArticleClick" />
-
 
     </data>
 
@@ -32,15 +30,15 @@
             android:id="@+id/item_container_cons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> articleClick.onClick(article)}"
             android:clickable="true"
+            android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
+            android:onClick="@{() -> articleClick.onClick(article)}"
             android:orientation="vertical"
-            tools:ignore="UnusedAttribute"
-            android:focusable="true">
+            tools:ignore="UnusedAttribute">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/item_poster"
+                android:id="@+id/item_article_poster"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:scaleType="fitXY"
@@ -62,7 +60,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_poster"
+                app:layout_constraintTop_toBottomOf="@id/item_article_poster"
                 tools:text="Zootopia" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -103,7 +101,7 @@
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 android:paddingBottom="12dp"
-                android:text="@{article.published_date}"
+                android:text="@{article.publishedDate}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 android:textColor="@color/white_87"
                 android:textSize="@dimen/_12sdp"

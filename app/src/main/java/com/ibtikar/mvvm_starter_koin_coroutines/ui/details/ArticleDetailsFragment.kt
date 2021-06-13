@@ -12,17 +12,17 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class ArticleDetailsFragment : BaseFragment<ArticleDetailsFragmentBinding, ArticleDetailsViewModel>(R.layout.article_details_fragment) {
 
     private val args: ArticleDetailsFragmentArgs by navArgs()
-    private lateinit var actorDetails: ArticleModelResponse
+    private lateinit var articleDetails: ArticleModelResponse
 
     override val viewModel: ArticleDetailsViewModel by viewModel()
 
     override fun setup() {
         (activity as AppCompatActivity?)!!.setSupportActionBar(binder.detailToolbar)
         (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        actorDetails = args.article
-        (activity as AppCompatActivity?)!!.supportActionBar!!.title = actorDetails.title
+        articleDetails = args.article
+        (activity as AppCompatActivity?)!!.supportActionBar!!.title = articleDetails.title
         binder.apply {
-            this.article = actorDetails
+            this.article = articleDetails
         }
     }
 
