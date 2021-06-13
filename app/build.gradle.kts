@@ -1,12 +1,22 @@
+import KotlinX.html
 
 plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
+    jacoco
     id("androidx.navigation.safeargs")
     id("org.jlleitschuh.gradle.ktlint") version "9.4.0"
     id("com.google.secrets_gradle_plugin") version "0.6"
+}
+
+tasks.withType<JacocoReport> {
+    reports {
+        xml.isEnabled = true
+        csv.isEnabled = false
+        html.destination = file("${buildDir}/reports/jacoco")
+    }
 }
 
 secrets {
@@ -21,17 +31,19 @@ android {
 
     defaultConfig {
         applicationId = "com.ibtikar.mvvm_starter_koin_coroutines"
-        minSdkVersion(21)
+        minSdkVersion(26)
         targetSdkVersion(30)
-        versionCode = 29
+        versionCode = 1
         versionName = "1.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
 
     buildTypes {
 
         getByName("debug") {
             isDebuggable = true
+            isTestCoverageEnabled = true
         }
 
         getByName("release") {

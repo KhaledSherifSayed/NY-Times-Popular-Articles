@@ -46,5 +46,6 @@ object Libs {
         const val gradle_plugin = "com.android.tools.build:gradle:_"
         const val kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:_"
         const val safe_args_gradle_plugin = "androidx.navigation:navigation-safe-args-gradle-plugin:_"
+        const val jacocoVersion  = "org.jacoco:org.jacoco.core:_"
     }
 }
