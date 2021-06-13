@@ -31,7 +31,7 @@ abstract class ArticlesDatabase : RoomDatabase() {
                 Room.databaseBuilder(
                     context,
                     ArticlesDatabase::class.java,
-                    "actors"
+                    "articlesDB"
                 ).build()
             }.also {
                 INSTANCE = it
