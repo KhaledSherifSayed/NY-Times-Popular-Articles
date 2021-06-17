@@ -4,7 +4,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.ibtikar.mvvm_starter_koin_coroutines.R
 import com.ibtikar.mvvm_starter_koin_coroutines.databinding.ArticleListFragmentBinding
-import com.ibtikar.mvvm_starter_koin_coroutines.ui.base.BaseFragment
+import com.ibtikar.mvvm_starter_koin_coroutines.ui.base.BaseFragmentWithBusiness
 import com.ibtikar.mvvm_starter_koin_coroutines.ui.base.ViewState
 import kotlinx.android.synthetic.main.article_list_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -14,7 +14,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  */
 
 class ArticlesListFragment :
-    BaseFragment<ArticleListFragmentBinding, ArticlesViewModel>(R.layout.article_list_fragment) {
+    BaseFragmentWithBusiness<ArticleListFragmentBinding, ArticlesViewModel>(R.layout.article_list_fragment) {
 
     private var articlesAdapter: ArticlesAdapter? = null
     override val viewModel: ArticlesViewModel by viewModel()
