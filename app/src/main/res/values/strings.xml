@@ -4,4 +4,5 @@
     <string name="error_time_out_connection">Sorry, you must try again </string>
     <string name="error_unexpected"> Unexpected Error </string>
     <string name="expandtext">ExpandText</string>
+    <string name="share">Share</string>
 </resources>

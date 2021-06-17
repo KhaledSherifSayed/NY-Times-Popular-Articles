@@ -15,12 +15,8 @@ import kotlinx.coroutines.flow.collect
  * Created by Meslmawy on 6/10/2021
  */
 
-abstract class BaseFragment<T : ViewDataBinding, VM : BaseViewModel>(private val layoutId: Int) :
+abstract class BaseFragment<T : ViewDataBinding>(private val layoutId: Int) :
     Fragment() {
-
-    protected abstract val viewModel: VM
-
-    private lateinit var loadingDialog: LoaderDialog
 
     /**
      *  in case we needed to access the views
@@ -35,6 +31,15 @@ abstract class BaseFragment<T : ViewDataBinding, VM : BaseViewModel>(private val
         binder = DataBindingUtil.inflate(inflater, layoutId, container, false)
         return binder.root
     }
+
+}
+
+abstract class BaseFragmentWithBusiness<T : ViewDataBinding, VM : BaseViewModel>(layoutId: Int) :
+    BaseFragment<T>(layoutId) {
+
+    protected abstract val viewModel: VM
+
+    private lateinit var loadingDialog: LoaderDialog
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

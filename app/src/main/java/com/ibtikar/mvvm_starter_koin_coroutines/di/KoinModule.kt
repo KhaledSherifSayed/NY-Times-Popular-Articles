@@ -46,7 +46,7 @@ val retrofitModule = module {
         return GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.IDENTITY).create()
     }
 
-    fun provideLoggingInterceptor(): HttpLoggingInterceptor {
+    fun provideDefaultLoggingInterceptor(): HttpLoggingInterceptor {
         return if (BuildConfig.DEBUG) {
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         } else {
@@ -54,8 +54,8 @@ val retrofitModule = module {
         }
     }
 
-    fun provideHttpClient(): OkHttpClient {
 
+    fun provideLoggingInterceptor() : LoggingInterceptor {
         val logging = LoggingInterceptor.Builder()
 
         if (BuildConfig.DEBUG)
@@ -63,8 +63,13 @@ val retrofitModule = module {
         else
             logging.setLevel(Level.NONE)
 
+        return logging.log(Log.VERBOSE).build()
+    }
+
+    fun provideHttpClient(loggingInterceptor: LoggingInterceptor): OkHttpClient {
+
         return OkHttpClient.Builder()
-            .addInterceptor(logging.log(Log.VERBOSE).build())
+            .addInterceptor(loggingInterceptor)
             .connectTimeout(20, TimeUnit.SECONDS)
             .readTimeout(20, TimeUnit.SECONDS)
             .build()
@@ -80,7 +85,8 @@ val retrofitModule = module {
     }
 
     single { provideGson() }
+    single { provideDefaultLoggingInterceptor() }
     single { provideLoggingInterceptor() }
-    single { provideHttpClient() }
+    single { provideHttpClient(get()) }
     single { provideRetrofit(get(), get()) }
 }
